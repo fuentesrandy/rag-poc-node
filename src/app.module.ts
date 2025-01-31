@@ -1,10 +1,19 @@
 import { Module } from '@nestjs/common';
-import { OpenAiModule } from './modules/open-ai.module';
+import { LlmModule } from './modules/nlp/nlp.module';
 import { ConfigModule } from '@nestjs/config';
+import { CoreModule } from './modules/core/core.module';
+import { DocumentsModule } from './modules/documents/documents.module';
+import { ChatModule } from './modules/chat/chat.module';
 
 @Module({
-  imports: [OpenAiModule, ConfigModule.forRoot()],
-  controllers: [],
-  providers: [],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    CoreModule,
+    LlmModule,
+    DocumentsModule,
+    ChatModule,
+  ]
 })
-export class AppModule {}
+export class AppModule { }
