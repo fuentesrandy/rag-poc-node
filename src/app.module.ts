@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { LlmModule } from './modules/nlp/nlp.module';
 import { ConfigModule } from '@nestjs/config';
-import { CoreModule } from './modules/core/core.module';
-import { DocumentsModule } from './modules/documents/documents.module';
-import { ChatModule } from './modules/chat/chat.module';
+import { CoreModule } from '@modules/core/core.module';
+import { LlmModule } from '@modules/nlp/nlp.module';
+import { DocumentsModule } from '@modules/documents/documents.module';
+import { ChatModule } from '@modules/chat/chat.module';
 
 @Module({
   imports: [

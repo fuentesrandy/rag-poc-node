@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ChatController } from './chat.controller';
-import { LlmModule } from '../nlp/nlp.module';
 import { ChatService } from './chat.service';
-import { DocumentsModule } from '../documents/documents.module';
+import { LlmModule } from '@modules/nlp/nlp.module';
+import { DocumentsModule } from '@modules/documents/documents.module';
 
 @Module({
   imports: [LlmModule, DocumentsModule],

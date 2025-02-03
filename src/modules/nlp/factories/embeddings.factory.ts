@@ -16,6 +16,5 @@ export class EmbeddingsFactory {
         return EmbeddingsFactory.instance;
     }
 
-    // Prevent instantiation
     private constructor() { }
 } 

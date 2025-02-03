@@ -19,4 +19,5 @@ export class ChatLLMFactory {
         }
         return ChatLLMFactory.instance;
     }
+    private constructor() { }
 } 

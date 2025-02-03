@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { LlmService } from '../nlp/llm.service';
-import { DocumentsService } from '../documents/documents.service';
-import { EmbeddingService } from '../nlp/embedding.service';
+import { LlmService } from '@modules/nlp/llm.service';
+import { DocumentsService } from '@modules/documents/documents.service';
+import { EmbeddingService } from '@modules/nlp/embedding.service';
 
 @Injectable()
 export class ChatService {
