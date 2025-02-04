@@ -6,6 +6,7 @@ export class ChatLLMFactory {
     public static getInstance(): AzureChatOpenAI {
         if (!ChatLLMFactory.instance) {
             ChatLLMFactory.instance = new AzureChatOpenAI({
+                streaming: true, 
                 model: process.env.AZURE_OPENAI_MODEL,
                 azureOpenAIApiKey: process.env.AZURE_OPENAI_API_KEY,
                 azureOpenAIApiInstanceName: process.env.AZURE_OPENAI_API_INSTANCE_NAME,
