@@ -26,6 +26,14 @@ export class DocumentsService {
         private readonly documentRepository: Repository<Document>
     ) { }
 
+    async listDocuments() {
+        const documents = await this.documentRepository.find();
+        return documents.map(doc => ({
+            id: doc.id,
+            fileName: doc.metadata?.fileName
+        }));
+    }
+
     async addDocument(file: Express.Multer.File) {
 
         const blobUploaded = await this.blobStorageService.uploadFile(file.originalname, file.buffer);

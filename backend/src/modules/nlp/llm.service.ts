@@ -23,10 +23,9 @@ export class LlmService {
         return result.content;
     }
 
-    async chatStream(systemMessage: string, chatHistory: string[], prompt: string): Promise<Observable<string>> {
+    async chatStream(systemMessage: string, prompt: string): Promise<Observable<string>> {
         const llm = this.chatLLM;
-        const recentMessages = (chatHistory ?? []).slice(-this.contextWindow);
-        const messages = [new SystemMessage(systemMessage), ...recentMessages, new HumanMessage(prompt)];
+        const messages = [new SystemMessage(systemMessage), new HumanMessage(prompt)];
         return new Observable<string>((observer) => {
             llm.invoke(messages, {
                 callbacks: [

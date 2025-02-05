@@ -1,4 +1,4 @@
-import { Controller, Post, UploadedFile, UseInterceptors, HttpCode } from '@nestjs/common';
+import { Controller, Post, UploadedFile, UseInterceptors, HttpCode, Get } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { DocumentsService } from './documents.service';
 
@@ -15,5 +15,10 @@ export class DocumentsController {
         return {
             message: 'Document added successfully'
         };
+    }
+
+    @Get()
+    async listDocuments() {
+        return this.documentsService.listDocuments();
     }
 }
